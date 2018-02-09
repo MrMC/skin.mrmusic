@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 	<variable name="PlaylistLabelVar">
-		<value condition="Container.Content(episodes)">$INFO[ListItem.TVShowtitle,,: ]$INFO[ListItem.Season,,x]$INFO[ListItem.Episode,,. ]$INFO[ListItem.Title]</value>
-		<value condition="Container.Content(musicvideos)">$INFO[ListItem.Artist,, - ]$INFO[ListItem.Title]</value>
 		<value>$INFO[ListItem.Label]</value>
 	</variable>
 	<variable name="PlaylistLabel2Var">
@@ -17,9 +15,6 @@
 		<value condition="Container.Content(artists)">$INFO[ListItem.Property(Artist_Description),[COLOR=white],[/COLOR]]</value>
 	</variable>
 	<variable name="NowPlayingSublabelVar">
-		<value condition="VideoPlayer.Content(episodes)">$INFO[VideoPlayer.TvShowTitle]</value>
-		<value condition="VideoPlayer.Content(movies)">$INFO[VideoPlayer.Year]$INFO[VideoPlayer.Genre, - ]</value>
-		<value condition="VideoPlayer.Content(livetv)">$INFO[VideoPlayer.ChannelName]</value>
 		<value condition="Player.HasAudio">$INFO[MusicPlayer.Artist]</value>
 	</variable>
 	<variable name="MusicInfoListLabelVar">
@@ -30,48 +25,18 @@
 		<value condition="Player.Paused">icons/now-playing/pause.png</value>
 		<value>icons/now-playing/play.png</value>
 	</variable>
-	<variable name="NowPlayingPosterVar">
-		<value condition="!IsEmpty(Player.Art(poster))">$INFO[Player.Art(poster)]</value>
-		<value condition="!IsEmpty(Player.Art(tvshow.poster))">$INFO[Player.Art(tvshow.poster)]</value>
-		<value condition="IsEmpty(Player.Art(thumb)) + VideoPlayer.Content(livetv)">DefaultTVShows.png</value>
-		<value>$INFO[Player.Art(thumb)]</value>
-	</variable>
 	<variable name="IconWallThumbVar">
 		<value condition="!IsEmpty(ListItem.Thumb)">$INFO[ListItem.Thumb]</value>
 		<value>$INFO[ListItem.Icon]</value>
 	</variable>
 	<variable name="ListLabel2Var">
-		<value condition="Container.Content(tvshows) + Stringcompare(Container.SortMethod,$LOCALIZE[556])">$INFO[ListItem.Property(WatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</value>
 		<value condition="Stringcompare(Container.SortMethod,$LOCALIZE[556])">$INFO[ListItem.Year]</value>
 		<value>$INFO[ListItem.Label2]</value>
 	</variable>
 	<variable name="ListBoxInfoVar">
-		<value condition="Container.Content(addons)">$INFO[ListItem.Property(Addon.Description)]</value>
-		<value condition="Container.Content(albums)">$INFO[ListItem.Property(album_description)]</value>
-		<value condition="Container.Content(musicvideos)">$INFO[ListItem.Genre,[COLOR primary_color]$LOCALIZE[515]: [/COLOR],[CR]]$INFO[ListItem.Plot]</value>
-		<value condition="Container.Content(artists)">$INFO[ListItem.Property(artist_description)]</value>
-		<value condition="!IsEmpty(ListItem.Plot)">$INFO[ListItem.Plot]</value>
 		<value condition="Container.Content(songs)">$INFO[ListItem.Genre,[COLOR grey]$LOCALIZE[515]: [/COLOR],[CR]]$INFO[ListItem.Duration,[COLOR grey]$LOCALIZE[180]: [/COLOR],[CR]]$INFO[ListItem.Playcount,[COLOR grey]$LOCALIZE[567]: [/COLOR],[CR]]</value>
 	</variable>
-	<variable name="AddonsListIconVar">
-		<value condition="!IsEmpty(ListItem.Property(Addon.Broken))">icons/addonstatus/disable.png</value>
-		<value condition="ListItem.Property(addon.downloading)">icons/addonstatus/install.png</value>
-		<value condition="ListItem.Property(Addon.Installed) + !ListItem.Property(Addon.Enabled) + Window.IsActive(addonbrowser)">icons/addonstatus/disable.png</value>
-		<value condition="ListItem.Property(addon.UpdateAvail)">icons/addonstatus/update.png</value>
-		<value condition="ListItem.Property(Addon.Installed)">OverlayWatched.png</value>
-		<value condition="!StringCompare(ListItem.Label,..)">OverlayUnwatched.png</value>
-	</variable>
-	<variable name="ResolutionFlagVar">
-		<value condition="ListItem.IsStereoscopic">3D</value>
-		<value condition="IntegerGreaterThan(ListItem.VideoResolution,1080)">4K</value>
-		<value>$INFO[ListItem.VideoResolution]</value>
-	</variable>
-	<variable name="NowPlayingResolutionFlagVar">
-		<value condition="VideoPlayer.IsStereoscopic">3D</value>
-		<value condition="IntegerGreaterThan(VideoPlayer.VideoResolution,1080)">4K</value>
-		<value>$INFO[VideoPlayer.VideoResolution]</value>
-	</variable>
-	<variable name="VideoPlayerForwardRewindVar">
+	<variable name="ForwardRewindVar">
 		<value condition="Player.Forwarding2x | Player.Rewinding2x">2x</value>
 		<value condition="Player.Forwarding4x | Player.Rewinding4x">4x</value>
 		<value condition="Player.Forwarding8x | Player.Rewinding8x">8x</value>
@@ -81,8 +46,8 @@
 	<variable name="SeekLabel">
 		<value condition="!IsEmpty(Player.SeekStepSize)">$LOCALIZE[773][COLOR=grey] $INFO[Player.SeekStepSize][/COLOR]</value>
 		<value condition="Player.Paused">$LOCALIZE[112]</value>
-		<value condition="Player.Forwarding">$LOCALIZE[31039] $VAR[VideoPlayerForwardRewindVar]</value>
-		<value condition="Player.Rewinding">$LOCALIZE[31038] $VAR[VideoPlayerForwardRewindVar]</value>
+		<value condition="Player.Forwarding">$LOCALIZE[31039] $VAR[ForwardRewindVar]</value>
+		<value condition="Player.Rewinding">$LOCALIZE[31038] $VAR[ForwardRewindVar]</value>
 		<value condition="Player.IsTempo">$LOCALIZE[31142]: $INFO[Player.PlaySpeed]</value>
 	</variable>
 	<variable name="SeekTimeLabelVar">
@@ -114,16 +79,10 @@
 		<value>[COLOR grey]$INFO[ListItem.Year, (,)][/COLOR]</value>
 	</variable>
 	<variable name="NowPlayingBreadcrumbsVar">
-		<value condition="VideoPlayer.Content(livetv)">$INFO[VideoPlayer.Title]</value>
-		<value condition="Window.IsActive(fullscreenvideo)">$INFO[VideoPlayer.Title]$INFO[VideoPlayer.Year, ([COLOR primary_color],[/COLOR])]</value>
-		<value condition="MusicPartyMode.Enabled">$LOCALIZE[589]</value>
 		<value>$LOCALIZE[31000]...</value>
 	</variable>
 	<variable name="OSDSubLabelVar">
 		<value condition="Window.IsActive(visualisation)">$LOCALIZE[554] $INFO[Playlist.Position] / $INFO[Playlist.Length]</value>
-		<value condition="VideoPlayer.Content(musicvideos)">$INFO[VideoPlayer.Artist]$INFO[VideoPlayer.Album, - ]</value>
-		<value condition="VideoPlayer.Content(episodes)">$INFO[VideoPlayer.Season,[COLOR primary_color]S,[/COLOR]]$INFO[VideoPlayer.Episode,[COLOR primary_color]E,: [/COLOR]]$INFO[VideoPlayer.TVShowTitle]</value>
-		<value>$INFO[VideoPlayer.Genre]</value>
 	</variable>
 	<variable name="HomeFanartVar">
 		<value condition="Skin.HasSetting(dark_theme)">-</value>
@@ -135,11 +94,6 @@
 		<value condition="Skin.HasSetting(dark_theme)">-</value>
 		<value condition="Skin.HasSetting(no_fanart)">$VAR[HomeFanartVar]</value>
 		<value condition="Window.IsActive(musicinformation)">$INFO[Window(home).Property(infobackground)]</value>
-		<value condition="Window.IsActive(pictures) + IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.FolderPath]</value>
-		<value condition="!IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
-		<value condition="!IsEmpty(Container.Art(tvshow.fanart))">$INFO[Container.Art(tvshow.fanart)]</value>
-		<value condition="!IsEmpty(Container.Art(artist.fanart))">$INFO[Container.Art(artist.fanart)]</value>
-		<value>$INFO[Container.Art(fanart)]</value>
 	</variable>
 	<variable name="ListWatchedIconVar">
 		<value condition="ListItem.IsPlaying">overlays/watched/OverlayPlaying-List.png</value>

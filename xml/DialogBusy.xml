@@ -9,7 +9,6 @@
 			<control type="image">
 				<texture colordiffuse="77FFFFFF">colors/black.png</texture>
 				<include>FullScreenDimensions</include>
-				<animation effect="fade" start="100" end="0" time="240" condition="Window.IsVisible(fullscreenvideo)">Conditional</animation>
 			</control>
 			<control type="group">
 				<depth>DepthMax</depth>

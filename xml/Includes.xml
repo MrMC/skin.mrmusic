@@ -154,48 +154,6 @@
 					<label>$INFO[ListItem.Mpaa]</label>
 				</control>
 			</control>
-			<control type="button">
-				<visible>!IsEmpty(ListItem.Rating)</visible>
-				<height>36</height>
-				<width>102</width>
-				<posx>0</posx>
-				<posy>0</posy>
-				<font>font13</font>
-				<align>right</align>
-				<aligny>bottom</aligny>
-				<textoffsetx>10</textoffsetx>
-				<textoffsety>-4</textoffsety>
-				<colordiffuse>grey</colordiffuse>
-				<textcolor>grey</textcolor>
-				<texturenofocus>badges/RatingBox.png</texturenofocus>
-				<texturefocus>badges/RatingBox.png</texturefocus>
-				<label>$INFO[ListItem.Rating]</label>
-			</control>
-			<control type="button">
-				<visible>!IsEmpty(ListItem.VideoResolution)</visible>
-				<height>36</height>
-				<width>102</width>
-				<posx>0</posx>
-				<posy>0</posy>
-				<font>font13</font>
-				<align>center</align>
-				<aligny>bottom</aligny>
-				<textoffsetx>0</textoffsetx>
-				<textoffsety>-4</textoffsety>
-				<colordiffuse>grey</colordiffuse>
-				<textcolor>grey</textcolor>
-				<texturenofocus>badges/video/ResFrame.png</texturenofocus>
-				<texturefocus>badges/video/ResFrame.png</texturefocus>
-				<label>$VAR[ResolutionFlagVar]</label>
-			</control>
-			<control type="image">
-				<visible>!IsEmpty(ListItem.VideoCodec)</visible>
-				<height>36</height>
-				<width>102</width>
-				<aspectratio>keep</aspectratio>
-				<colordiffuse>grey</colordiffuse>
-				<texture>$INFO[ListItem.VideoCodec,badges/video/,.png]</texture>
-			</control>
 			<control type="image">
 				<visible>!IsEmpty(ListItem.AudioChannels)</visible>
 				<height>36</height>
@@ -211,23 +169,6 @@
 				<aspectratio>keep</aspectratio>
 				<colordiffuse>grey</colordiffuse>
 				<texture>$INFO[ListItem.AudioCodec,badges/audio/,.png]</texture>
-			</control>
-			<control type="button">
-				<visible>!IsEmpty(ListItem.VideoAspect)</visible>
-				<height>36</height>
-				<width>102</width>
-				<posx>0</posx>
-				<posy>0</posy>
-				<font>font13</font>
-				<align>center</align>
-				<aligny>bottom</aligny>
-				<textoffsetx>0</textoffsetx>
-				<textoffsety>-4</textoffsety>
-				<colordiffuse>grey</colordiffuse>
-				<textcolor>grey</textcolor>
-				<texturenofocus>badges/video/FlagFrame.png</texturenofocus>
-				<texturefocus>badges/video/FlagFrame.png</texturefocus>
-				<label>$INFO[ListItem.VideoAspect]</label>
 			</control>
 		</control>
 	</include>
@@ -374,14 +315,6 @@
 		</definition>
 	</include>
 	<include name="DialogBackgroundCommons">
-		<control type="image">
-			<left>-2000</left>
-			<top>-2000</top>
-			<width>6000</width>
-			<height>6000</height>
-			<texture colordiffuse="AAFFFFFF">colors/black.png</texture>
-			<visible>Window.IsActive(fullscreenvideo)</visible>
-		</control>
 		<control type="button">
 			<left>-2000</left>
 			<top>-2000</top>
@@ -432,7 +365,7 @@
 			<control type="group">
 				<animation effect="slide" end="0,-90" time="300" tween="sine" easing="inout" condition="System.HasModalDialog">conditional</animation>
 				<depth>DepthBars</depth>
-				<animation effect="fade" start="0" end="100" time="300" condition="[Window.Previous(fullscreenvideo) | Window.Previous(startup)]">WindowOpen</animation>
+				<animation effect="fade" start="0" end="100" time="300" condition="Window.Previous(startup)">WindowOpen</animation>
 				<control type="grouplist">
 					<left>35</left>
 					<description>Left side of top bar</description>
@@ -446,16 +379,6 @@
 					<control type="label">
 						<label>$PARAM[breadcrumbs_label]</label>
 						<include>BreadcrumbsLabel</include>
-					</control>
-					<control type="label">
-						<label>$INFO[Container.FolderName, / ]</label>
-						<include>BreadcrumbsLabel</include>
-						<visible>![Container.Content() + Window.IsActive(videos)]</visible>
-					</control>
-					<control type="label">
-						<label>$INFO[Control.GetLabel(10),: ]</label>
-						<include>BreadcrumbsLabel</include>
-						<visible>!Stringcompare(Control.GetLabel(10),$LOCALIZE[16100]) + Window.IsActive(videos)</visible>
 					</control>
 					<control type="label">
 						<left>10</left>
@@ -542,12 +465,6 @@
 	</include>
 	<include name="DefaultBackground">
 		<definition>
-			<control type="videowindow">
-				<depth>DepthBackground</depth>
-				<include>FullScreenDimensions</include>
-				<visible>Player.HasVideo</visible>
-				<visible>!Slideshow.IsActive</visible>
-			</control>
 			<control type="visualisation">
 				<include>FullScreenDimensions</include>
 				<visible>!Slideshow.IsActive</visible>
@@ -558,11 +475,11 @@
 				<animation effect="zoom" center="auto" end="102,102" time="0" condition="IntegerGreaterThan(System.StereoscopicMode,0)">conditional</animation>
 				<control type="group">
 					<animation effect="fade" start="100" end="bg_alpha" time="0" condition="!Control.IsVisible(31111)">Conditional</animation>
-					<animation effect="fade" start="0" end="100" time="300" condition="Window.Previous(fullscreenvideo) | Window.Previous(startup)">WindowOpen</animation>
+					<animation effect="fade" start="0" end="100" time="300" condition="Window.Previous(startup)">WindowOpen</animation>
 					<include>ColoredBackgroundImages</include>
 				</control>
 				<control type="image" id="31111">
-					<visible>![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !IsEmpty(Visualisation.Name)]]</visible>
+					<visible>![Player.HasAudio + Visualisation.Enabled + !IsEmpty(Visualisation.Name)]</visible>
 					<depth>DepthBackground</depth>
 					<animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
 					<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
@@ -594,7 +511,7 @@
 				<animation effect="slide" end="0,90" time="300" tween="sine" easing="inout" condition="System.HasModalDialog">conditional</animation>
 				<depth>DepthBars</depth>
 				<animation effect="fade" start="100" end="0" time="300" condition="Window.Next(visualisation) | Window.Next(screencalibration)">WindowClose</animation>
-				<animation effect="fade" start="0" end="100" time="300" condition="Window.Previous(fullscreenvideo) | Window.Previous(startup) | Window.Previous(visualisation)">WindowOpen</animation>
+				<animation effect="fade" start="0" end="100" time="300" condition="Window.Previous(startup) | Window.Previous(visualisation)">WindowOpen</animation>
 				<bottom>0</bottom>
 				<height>100</height>
 				<control type="label">
@@ -724,49 +641,6 @@
 					<param name="flipx" value="$PARAM[flip_bg]" />
 				</include>
 				<control type="group">
-					<visible>Container.Content(episodes)</visible>
-					<control type="label">
-						<top>150</top>
-						<left>30</left>
-						<width>470</width>
-						<height>30</height>
-						<font>font30_title</font>
-						<aligny>top</aligny>
-						<textcolor>grey</textcolor>
-						<label>$INFO[ListItem.TVShowTitle]</label>
-					</control>
-					<control type="label">
-						<top>190</top>
-						<left>30</left>
-						<width>470</width>
-						<height>25</height>
-						<font>font25_title</font>
-						<aligny>top</aligny>
-						<textcolor>grey</textcolor>
-						<label>$INFO[ListItem.Title]</label>
-					</control>
-					<control type="image">
-						<left>30</left>
-						<top>240</top>
-						<width>530</width>
-						<height>370</height>
-						<aspectratio aligny="center">scale</aspectratio>
-						<fadetime>300</fadetime>
-						<texture background="true">$INFO[ListItem.Thumb]</texture>
-					</control>
-					<control type="progress">
-						<left>30</left>
-						<top>610</top>
-						<width>530</width>
-						<height>6</height>
-						<texturebg>-</texturebg>
-						<midtexture colordiffuse="primary_color">colors\white.png</midtexture>
-						<info>ListItem.PercentPlayed</info>
-						<visible>IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
-					</control>
-				</control>
-				<control type="group">
-					<visible>!Container.Content(episodes)</visible>
 					<control type="image">
 						<left>30</left>
 						<top>140</top>
