@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<includes>
+	<include name="MediaMenuItemsCommon">
+		<width>470</width>
+		<textoffsetx>20</textoffsetx>
+		<top>0</top>
+		<height>100</height>
+		<radioposx>360</radioposx>
+		<aligny>center</aligny>
+		<invalidcolor>invalid</invalidcolor>
+		<texturefocus colordiffuse="primary_color" border="5">buttons/focus.png</texturefocus>
+		<texturenofocus />
+		<alttexturefocus colordiffuse="primary_color">lists/focus.png</alttexturefocus>
+		<alttexturenofocus></alttexturenofocus>
+	</include>
+	<include name="MediaMenuLabelCommon">
+		<width>470</width>
+		<textoffsetx>20</textoffsetx>
+		<textoffsety>15</textoffsety>
+		<height>50</height>
+		<radioposx>300</radioposx>
+		<font>font25_upper</font>
+		<align>center</align>
+		<aligny>top</aligny>
+		<textcolor>primary_color</textcolor>
+	</include>
+	<include name="MediaMenuCommon">
+		<include>OpenClose_Left</include>
+		<animation type="Conditional" condition="ControlGroup(9000).HasFocus | Control.HasFocus(6130)" reversible="true">
+			<effect type="slide" start="0" end="520" time="400" tween="sine" easing="inout" />
+		</animation>
+		<depth>DepthSideBlade</depth>
+		<left>-520</left>
+		<control type="button">
+			<left>525</left>
+			<centertop>50%</centertop>
+			<width>28</width>
+			<height>28</height>
+			<texturefocus flipx="true" colordiffuse="primary_color">overlays/arrowright.png</texturefocus>
+			<texturenofocus flipx="true" colordiffuse="primary_color">overlays/arrowright.png</texturenofocus>
+			<onclick>SetFocus(9000)</onclick>
+			<animation effect="zoom" start="0,100" end="100,100" delay="500" center="auto" time="200">WindowOpen</animation>
+			<animation effect="zoom" start="100,100" end="0,100" center="auto" time="200">WindowClose</animation>
+		</control>
+		<include content="ContentPanel">
+			<param name="width" value="540" />
+			<param name="flipx" value="$PARAM[flip_bg]" />
+		</include>
+		<control type="button" id="3">
+			<description>Viewtype Toggle</description>
+			<include>HiddenObject</include>
+		</control>
+		<control type="button" id="4">
+			<description>Order Toggle</description>
+			<include>HiddenObject</include>
+		</control>
+	</include>
+	<include name="MediaMenuNowPlaying">
+		<control type="grouplist" id="14100">
+			<animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
+			<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
+			<animation effect="fade" time="300">VisibleChange</animation>
+			<orientation>horizontal</orientation>
+			<itemgap>10</itemgap>
+			<left>5</left>
+			<onleft>14100</onleft>
+			<width>450</width>
+			<visible>Player.HasMedia + [ControlGroup(9000).HasFocus | Control.HasFocus(6130)]</visible>
+			<visible>!System.HasModalDialog</visible>
+			<include content="BottomMainMenuToggleItem">
+				<param name="control_id" value="14101" />
+				<param name="onclick" value="PlayerControl(Play)" />
+				<param name="icon_on" value="icons/now-playing/play.png" />
+				<param name="icon_off" value="icons/now-playing/pause.png" />
+				<param name="selected" value="Player.Paused" />
+			</include>
+			<include content="IconButton">
+				<param name="control_id" value="14102" />
+				<param name="onclick" value="Stop" />
+				<param name="onclick_2" value="SetFocus(50)" />
+				<param name="icon" value="icons/now-playing/stop.png" />
+			</include>
+			<include content="IconButton">
+				<param name="control_id" value="14104" />
+				<param name="onclick" value="PlayerControl(Next)" />
+				<param name="icon" value="icons/now-playing/next.png" />
+			</include>
+			<include content="IconButton">
+				<param name="control_id" value="14105" />
+				<param name="onclick" value="Fullscreen" />
+				<param name="icon" value="icons/now-playing/fullscreen.png" />
+			</include>
+		</control>
+	</include>
+	<include name="MediaMenuListCommon">
+		<definition>
+			<left>0</left>
+			<top>100</top>
+			<width>470</width>
+			<height>100%</height>
+			<onleft>9000</onleft>
+			<onup>9000</onup>
+			<onright>50</onright>
+			<ondown>9000</ondown>
+			<onback>50</onback>
+			<control type="label" id="200">
+				<include>MediaMenuLabelCommon</include>
+				<label>$LOCALIZE[14018]</label>
+			</control>
+			<control type="button" id="6053">
+				<include>MediaMenuItemsCommon</include>
+				<label>$LOCALIZE[31022]</label>
+				<label2>$INFO[Container.SortMethod]</label2>
+				<visible>Control.IsEnabled(3)</visible>
+				<onclick>SendClick(3)</onclick>
+			</control>
+			<control type="button" id="6052">
+				<include>MediaMenuItemsCommon</include>
+				<label>$LOCALIZE[31032]</label>
+				<label2>$INFO[Container.SortOrder]</label2>
+				<visible>Control.IsEnabled(4)</visible>
+				<onclick>SendClick(4)</onclick>
+			</control>
+			<control type="button" id="19">
+				<visible>Container.CanFilter + !Container.CanFilterAdvanced</visible>
+				<include>MediaMenuItemsCommon</include>
+				<label>$LOCALIZE[137]</label>
+			</control>
+			<control type="button" id="199">
+				<visible>Container.CanFilterAdvanced</visible>
+				<include>MediaMenuItemsCommon</include>
+				<label>$LOCALIZE[587]</label>
+				<onclick>right</onclick>
+				<onclick>Filter</onclick>
+			</control>
+		</definition>
+	</include>
+	<include name="MediaMenuMouseOverlay">
+		<control type="button" id="6130">
+			<label></label>
+			<height>100%</height>
+			<width>50</width>
+			<left>-50</left>
+			<top>0</top>
+			<texturefocus />
+			<texturenofocus />
+		</control>
+	</include>
+</includes>
