@@ -49,12 +49,6 @@
 						<ondown>9000</ondown>
 						<onup>9000</onup>
 						<onleft>9100</onleft>
-						<onright condition="Container(9000).HasFocus(1)">2000</onright>
-						<!-- Movies -->
-						<onright condition="Container(9000).HasFocus(2)">2001</onright>
-						<!-- TvShows -->
-						<onright condition="Container(9000).HasFocus(3)">2002</onright>
-						<!-- Music -->
 						<orientation>vertical</orientation>
 						<scrolltime tween="cubic" easing="out">500</scrolltime>
 						<itemlayout height="120">

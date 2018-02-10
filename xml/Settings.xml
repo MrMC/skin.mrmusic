@@ -89,11 +89,6 @@
 						<icon>icons/settings/appearance.png</icon>
 					</item>
 					<item>
-						<label>$LOCALIZE[13200]</label>
-						<onclick>ActivateWindow(Profiles)</onclick>
-						<icon>icons/settings/profiles.png</icon>
-					</item>
-					<item>
 						<label>$LOCALIZE[2]</label>
 						<onclick>ActivateWindow(MusicSettings)</onclick>
 						<icon>icons/settings/music.png</icon>

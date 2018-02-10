@@ -33,50 +33,6 @@
 		<label></label>
 		<font></font>
 	</include>
-	<include name="InfoList">
-		<param name="item_label">$INFO[ListItem.Year,[COLOR primary_color],[/COLOR]  -  ]$INFO[ListItem.Label]</param>
-		<param name="path">$VAR[InfoListPathVar]</param>
-		<param name="item_height">40</param>
-		<param name="bottom">100</param>
-		<param name="width">1152</param>
-		<param name="list_id">5000</param>
-		<param name="font">font13</param>
-		<param name="sortby"></param>
-		<param name="sortorder">ascending</param>
-		<param name="visible">true</param>
-		<definition>
-			<control type="panel" id="$PARAM[list_id]">
-				<top>0</top>
-				<width>$PARAM[width]</width>
-				<bottom>$PARAM[bottom]</bottom>
-				<orientation>vertical</orientation>
-				<visible>$PARAM[visible]</visible>
-				<focusedlayout height="$PARAM[item_height]" width="$PARAM[width]">
-					<control type="label">
-						<left>10</left>
-						<height>$PARAM[item_height]</height>
-						<width>$PARAM[width]</width>
-						<aligny>center</aligny>
-						<label>$PARAM[item_label]</label>
-						<shadowcolor>text_shadow</shadowcolor>
-						<font>$PARAM[font]</font>
-					</control>
-				</focusedlayout>
-				<itemlayout height="$PARAM[item_height]" width="$PARAM[width]">
-					<control type="label">
-						<left>10</left>
-						<height>$PARAM[item_height]</height>
-						<width>$PARAM[width]</width>
-						<aligny>center</aligny>
-						<label>$PARAM[item_label]</label>
-						<shadowcolor>text_shadow</shadowcolor>
-						<font>$PARAM[font]</font>
-					</control>
-				</itemlayout>
-				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]">$PARAM[path]</content>
-			</control>
-		</definition>
-	</include>
 	<include name="DefaultSimpleListLayout">
 		<param name="align">left</param>
 		<param name="height">70</param>
@@ -434,7 +390,6 @@
 					<align>center</align>
 					<visible>!System.HasModalDialog</visible>
 					<visible>Container.Scrolling</visible>
-					<visible>!Container.Content(seasons)</visible>
 					<visible>Stringcompare(Container.SortMethod,$LOCALIZE[551]) | Stringcompare(Container.SortMethod,$LOCALIZE[561]) | Stringcompare(Container.SortMethod,$LOCALIZE[558]) | Stringcompare(Container.SortMethod,$LOCALIZE[557]) | Stringcompare(Container.SortMethod,$LOCALIZE[556]) | Stringcompare(Container.SortMethod,$LOCALIZE[563])</visible>
 					<animation effect="fade" start="0" end="100" time="200" reversible="true">VisibleChange</animation>
 					<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
@@ -685,22 +640,10 @@
 					<bottom>125</bottom>
 					<autoscroll time="3000" delay="7000" repeat="5000">!System.HasModalDialog</autoscroll>
 					<label>$VAR[ListBoxInfoVar]</label>
-					<visible>!Container.Content() | !IsEmpty(ListItem.Plot)</visible>
+					<visible>!Container.Content()</visible>
 				</control>
 				<control type="group">
-					<left>20</left>
-					<top>690</top>
-					<visible>ListItem.IsCollection</visible>
-					<include content="InfoList">
-						<param name="bottom" value="100" />
-						<param name="width" value="540" />
-						<param name="sortby" value="year" />
-						<param name="sortorder" value="descending" />
-						<param name="font" value="font13" />
-					</include>
-				</control>
-				<control type="group">
-					<visible>IsEmpty(Control.GetLabel(15500)) + !ListItem.IsCollection</visible>
+					<visible>IsEmpty(Control.GetLabel(15500))</visible>
 					<control type="textbox">
 						<left>30</left>
 						<top>700</top>
@@ -712,7 +655,7 @@
 						<textcolor>80FFFFFF</textcolor>
 						<label>$LOCALIZE[19055]</label>
 						<visible>!StringCompare(ListItem.Label,..)</visible>
-						<visible>!Container.Content() | !IsEmpty(ListItem.Plot)</visible>
+						<visible>!Container.Content()</visible>
 					</control>
 				</control>
 			</control>
