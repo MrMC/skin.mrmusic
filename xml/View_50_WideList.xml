@@ -2,7 +2,6 @@
 <includes>
 	<include name="ListLayouts">
 		<param name="list_item_height">list_item_height</param>
-		<param name="font">font35</param>
 		<definition>
 			<focusedlayout height="$PARAM[list_item_height]">
 				<control type="image">
@@ -18,7 +17,7 @@
 					<right>90</right>
 					<aligny>center</aligny>
 					<scroll>true</scroll>
-					<font>font14</font>
+					<font>font30_title</font>
 					<label>$INFO[ListItem.Label]</label>
 					<shadowcolor>text_shadow</shadowcolor>
 				</control>
@@ -28,7 +27,7 @@
 					<right>40</right>
 					<align>right</align>
 					<aligny>center</aligny>
-					<font>font14</font>
+					<font>font30_title</font>
 					<label>$INFO[ListItem.Label2]</label>
 					<shadowcolor>text_shadow</shadowcolor>
 				</control>
@@ -39,7 +38,7 @@
 					<bottom>0</bottom>
 					<right>90</right>
 					<aligny>center</aligny>
-					<font>font14</font>
+					<font>font30_title</font>
 					<label>$INFO[ListItem.Label]</label>
 					<shadowcolor>text_shadow</shadowcolor>
 				</control>
@@ -49,7 +48,7 @@
 					<right>40</right>
 					<align>right</align>
 					<aligny>center</aligny>
-					<font>font14</font>
+					<font>font30_title</font>
 					<label>$INFO[ListItem.Label2]</label>
 					<textcolor>grey</textcolor>
 					<shadowcolor>text_shadow</shadowcolor>
