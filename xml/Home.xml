@@ -25,62 +25,43 @@
 					<depth>DepthContentPanel</depth>
 					<include>OpenClose_Left</include>
 					<left>0</left>
-					<control type="fixedlist" id="9000">
+					<control type="list" id="9000">
 						<top>85</top>
 						<left>0</left>
 						<bottom>140</bottom>
-						<width>540</width>
-						<movement>4</movement>
-						<focusposition>2</focusposition>
+						<width>500</width>
 						<onfocus>ClearProperty(listposition,home)</onfocus>
 						<ondown>9000</ondown>
 						<onup>9000</onup>
 						<onleft>9100</onleft>
 						<orientation>vertical</orientation>
 						<scrolltime tween="cubic" easing="out">500</scrolltime>
-						<itemlayout height="120">
+						<itemlayout height="90">
 							<control type="label">
 								<left>90</left>
 								<right>40</right>
 								<height>110</height>
-								<font>font45</font>
+								<font>font36_title</font>
+								<textcolor>60FFFFFF</textcolor>
 								<label>$INFO[ListItem.Label]</label>
-								<align>left</align>
+								<align>right</align>
 								<aligny>center</aligny>
 								<animation effect="fade" start="100" end="30" time="200" tween="sine" condition="ControlGroup(9100).HasFocus">Conditional</animation>
 							</control>
 						</itemlayout>
-						<focusedlayout height="120">
+						<focusedlayout height="90">
 							<control type="group">
 								<left>40</left>
 								<right>0</right>
-								<control type="image">
-									<left>0</left>
-									<right>25</right>
-									<top>-10</top>
-									<height>110%</height>
-									<visible>Control.HasFocus(9000)</visible>
-									<texture colordiffuse="primary_color" border="50">buttons/dialogbutton-fo.png</texture>
-								</control>
 								<control type="label">
 									<left>50</left>
 									<right>40</right>
 									<height>110</height>
-									<font>font45</font>
+									<font>font36_title</font>
 									<aligny>center</aligny>
 									<label>$INFO[ListItem.Label]</label>
-									<align>left</align>
+									<align>right</align>
 								</control>
-							</control>
-							<control type="image">
-								<left>10</left>
-								<top>45</top>
-								<width>28</width>
-								<height>28</height>
-								<texture flipx="true" colordiffuse="primary_color">overlays/arrowright.png</texture>
-								<animation effect="zoom" start="0,100" end="100,100" delay="500" center="auto" time="200">WindowOpen</animation>
-								<animation effect="zoom" start="100,100" end="0,100" center="auto" time="200">WindowClose</animation>
-								<visible>!IsEmpty(Container(9000).ListItem.Property(submenu))</visible>
 							</control>
 						</focusedlayout>
 						<content>

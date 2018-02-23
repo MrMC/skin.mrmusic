@@ -427,7 +427,7 @@
 					<visible>Player.Muted</visible>
 				</control>
 				<control type="label">
-					<font>font45</font>
+					<font>font45_title</font>
 					<shadowcolor>text_shadow</shadowcolor>
 					<height>200</height>
 					<width>auto</width>

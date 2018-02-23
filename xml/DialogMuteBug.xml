@@ -9,7 +9,7 @@
 			<animation effect="fade" start="100" end="0" time="150">WindowClose</animation>
 			<control type="image">
 				<right>260</right>
-				<top>15</top>
+				<bottom>25</bottom>
 				<width>60</width>
 				<height>60</height>
 				<texture colordiffuse="white">dialogs/volume/mute.png</texture>
