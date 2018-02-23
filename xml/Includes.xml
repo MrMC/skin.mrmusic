@@ -307,17 +307,7 @@
 	</include>
 	<include name="TopBar">
 		<definition>
-			<control type="image">
-				<texture flipx="$PARAM[flipx]">lists/panel.png</texture>
-				<height>82</height>
-				<top>0</top>
-			</control>
-			<control type="image">
-				<description>separator image</description>
-				<top>82</top>
-				<height>4</height>
-				<texture colordiffuse="primary_color" border="3">dialogs/separator-grey.png</texture>
-			</control>
+
 			<control type="group">
 				<animation effect="slide" end="0,-90" time="300" tween="sine" easing="inout" condition="System.HasModalDialog">conditional</animation>
 				<depth>DepthBars</depth>
@@ -352,34 +342,6 @@
 					<texturefocus />
 					<texturenofocus />
 				</control>
-				<control type="grouplist">
-					<top>10</top>
-					<align>right</align>
-					<right>40</right>
-					<height>80</height>
-					<orientation>horizontal</orientation>
-					<width>900</width>
-					<itemgap>10</itemgap>
-					<animation effect="fade" time="150">VisibleChange</animation>
-					<control type="image">
-						<top>8</top>
-						<left>-20</left>
-						<width>74</width>
-						<height>40</height>
-						<fadetime>300</fadetime>
-						<aspectratio aligny="center" align="center">keep</aspectratio>
-						<texture>dialogs/volume/mute.png</texture>
-						<visible>Player.Muted</visible>
-					</control>
-					<control type="label">
-						<font>font45</font>
-						<shadowcolor>text_shadow</shadowcolor>
-						<height>200</height>
-						<width>auto</width>
-						<animation effect="fade" start="100" end="0" time="300" condition="Window.Next(screencalibration)">WindowClose</animation>
-						<label>$INFO[System.Time]</label>
-					</control>
-				</control>
 				<control type="label" id="23000">
 					<centertop>50%</centertop>
 					<centerleft>50%</centerleft>
@@ -409,7 +371,7 @@
 			<depth>DepthBackground</depth>
 			<include>FullScreenDimensions</include>
 			<aspectratio>scale</aspectratio>
-			<texture colordiffuse="primary_background">special://skin/extras/backgrounds/primary.jpg</texture>
+			<texture colordiffuse="primary_background">special://skin/extras/backgrounds/record.gif</texture>
 		</control>
 		<control type="image">
 			<depth>DepthBackground</depth>
@@ -451,16 +413,33 @@
 	<include name="BottomBar">
 		<param name="info_visible">False</param>
 		<definition>
-			<control type="image">
-				<texture flipx="$PARAM[flipx]">lists/panel.png</texture>
-				<height>82</height>
-				<bottom>0</bottom>
-			</control>
-			<control type="image">
-				<description>separator image</description>
-				<bottom>82</bottom>
-				<height>4</height>
-				<texture colordiffuse="primary_color" border="3">dialogs/separator-grey.png</texture>
+			<control type="grouplist">
+				<bottom>10</bottom>
+				<align>right</align>
+				<right>40</right>
+				<height>80</height>
+				<orientation>horizontal</orientation>
+				<width>900</width>
+				<itemgap>10</itemgap>
+				<animation effect="fade" time="150">VisibleChange</animation>
+				<control type="image">
+					<top>8</top>
+					<left>-20</left>
+					<width>74</width>
+					<height>40</height>
+					<fadetime>300</fadetime>
+					<aspectratio aligny="center" align="center">keep</aspectratio>
+					<texture>dialogs/volume/mute.png</texture>
+					<visible>Player.Muted</visible>
+				</control>
+				<control type="label">
+					<font>font45</font>
+					<shadowcolor>text_shadow</shadowcolor>
+					<height>200</height>
+					<width>auto</width>
+					<animation effect="fade" start="100" end="0" time="300" condition="Window.Next(screencalibration)">WindowClose</animation>
+					<label>$INFO[System.Time]</label>
+				</control>
 			</control>
 			<control type="group">
 				<animation effect="slide" end="0,90" time="300" tween="sine" easing="inout" condition="System.HasModalDialog">conditional</animation>
