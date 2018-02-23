@@ -373,12 +373,6 @@
 			<aspectratio>scale</aspectratio>
 			<texture colordiffuse="primary_background">special://skin/extras/backgrounds/record.gif</texture>
 		</control>
-		<control type="image">
-			<depth>DepthBackground</depth>
-			<include>FullScreenDimensions</include>
-			<aspectratio>scale</aspectratio>
-			<texture colordiffuse="secondary_background" fallback="special://skin/extras/backgrounds/secondary1.png">$INFO[Skin.String(background_overlay),special://skin/extras/backgrounds/secondary,.png]</texture>
-		</control>
 	</include>
 	<include name="DefaultBackground">
 		<definition>
@@ -567,7 +561,7 @@
 				<animation type="Conditional" condition="ControlGroup(9000).HasFocus | Control.HasFocus(6130)" reversible="true">
 					<effect type="slide" start="0" end="520" time="400" tween="sine" easing="inout" />
 				</animation>
-				<right>0</right>
+				<left>0</left>
 				<width>593</width>
 				<depth>DepthContentPanel</depth>
 				<include content="ContentPanel">
