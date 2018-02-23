@@ -50,19 +50,16 @@
 							</control>
 						</itemlayout>
 						<focusedlayout height="90">
-							<control type="group">
-								<left>40</left>
-								<right>0</right>
 								<control type="label">
-									<left>50</left>
+									<left>90</left>
 									<right>40</right>
 									<height>110</height>
 									<font>font36_title</font>
+									<animation center="460,50" effect="zoom" reversible="false" start="100" end="120" time="300" tween="sine">Focus</animation>
 									<aligny>center</aligny>
 									<label>$INFO[ListItem.Label]</label>
 									<align>right</align>
 								</control>
-							</control>
 						</focusedlayout>
 						<content>
 							<item id="1">

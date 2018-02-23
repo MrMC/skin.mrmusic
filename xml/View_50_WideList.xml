@@ -2,90 +2,9 @@
 <includes>
 	<include name="ListLayouts">
 		<param name="list_item_height">list_item_height</param>
-		<param name="font">font45</param>
+		<param name="font">font35</param>
 		<definition>
-			<focusedlayout height="$PARAM[list_item_height]" condition="Container.Content(files)">
-				<control type="image">
-					<left>0</left>
-					<right>0</right>
-					<bottom>0</bottom>
-					<texture colordiffuse="primary_color" border="5">buttons/focus.png</texture>
-					<visible>Control.HasFocus(50)</visible>
-				</control>
-				<control type="image">
-					<left>30</left>
-					<centertop>50%</centertop>
-					<width>32</width>
-					<height>32</height>
-					<texture>$VAR[ListWatchedIconVar]</texture>
-					<visible>!StringCompare(ListItem.Label,..)</visible>
-				</control>
-				<control type="label">
-					<left>85</left>
-					<top>0</top>
-					<bottom>0</bottom>
-					<right>90</right>
-					<aligny>center</aligny>
-					<scroll>true</scroll>
-					<font>$PARAM[font]</font>
-					<label>$INFO[ListItem.Label]</label>
-					<shadowcolor>text_shadow</shadowcolor>
-					<selectedcolor>white</selectedcolor>
-				</control>
-				<control type="label">
-					<left>50%</left>
-					<top>0</top>
-					<bottom>0</bottom>
-					<right>30</right>
-					<align>right</align>
-					<aligny>center</aligny>
-					<font>$PARAM[font]</font>
-					<label>$VAR[ListLabel2Var]</label>
-					<shadowcolor>text_shadow</shadowcolor>
-					<selectedcolor>white</selectedcolor>
-				</control>
-			</focusedlayout>
-			<itemlayout height="$PARAM[list_item_height]" condition="Container.Content(files)">
-				<control type="image">
-					<left>30</left>
-					<centertop>50%</centertop>
-					<width>32</width>
-					<height>32</height>
-					<texture colordiffuse="grey">$VAR[ListWatchedIconVar]</texture>
-					<visible>!StringCompare(ListItem.Label,..)</visible>
-				</control>
-				<control type="label">
-					<left>85</left>
-					<top>0</top>
-					<bottom>0</bottom>
-					<right>90</right>
-					<aligny>center</aligny>
-					<label>$INFO[ListItem.Label]</label>
-					<font>$PARAM[font]</font>
-					<shadowcolor>text_shadow</shadowcolor>
-				</control>
-				<control type="label">
-					<left>50%</left>
-					<top>0</top>
-					<bottom>0</bottom>
-					<right>30</right>
-					<align>right</align>
-					<aligny>center</aligny>
-					<font>$PARAM[font]</font>
-					<label>$VAR[ListLabel2Var]</label>
-					<shadowcolor>text_shadow</shadowcolor>
-				</control>
-				<control type="image">
-					<left>30</left>
-					<centertop>50%</centertop>
-					<visible>IsEmpty(ListItem.Year) + IsEmpty(ListItem.Property(Addon.Version))</visible>
-					<visible>!StringCompare(ListItem.Label,..)</visible>
-					<width>32</width>
-					<height>32</height>
-					<texture colordiffuse="grey">$VAR[ListWatchedIconVar]</texture>
-				</control>
-			</itemlayout>
-			<focusedlayout height="$PARAM[list_item_height]" condition="Container.Content(songs)">
+			<focusedlayout height="$PARAM[list_item_height]">
 				<control type="image">
 					<left>0</left>
 					<right>0</right>
@@ -114,7 +33,7 @@
 					<shadowcolor>text_shadow</shadowcolor>
 				</control>
 			</focusedlayout>
-			<itemlayout height="$PARAM[list_item_height]" condition="Container.Content(songs)">
+			<itemlayout height="$PARAM[list_item_height]">
 				<control type="label">
 					<left>35</left>
 					<bottom>0</bottom>
@@ -159,11 +78,7 @@
 				<onup>50</onup>
 				<ondown>50</ondown>
 				<viewtype label="$LOCALIZE[31107]">list</viewtype>
-				<include condition="System.IsTouch">ListLayouts</include>
-				<include content="ListLayouts" condition="!System.IsTouch">
-					<param name="list_item_height" value="80" />
-					<param name="font" value="font35" />
-				</include>
+				<include>ListLayouts</include>
 			</control>
 			<control type="scrollbar" id="531">
 				<right>0</right>
