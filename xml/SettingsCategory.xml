@@ -10,11 +10,11 @@
 				<include>OpenClose_Right</include>
 				<control type="grouplist" id="5">
 					<description>control area</description>
-					<top>90</top>
-					<left>520</left>
+					<top>260</top>
+					<left>600</left>
 					<pagecontrol>60</pagecontrol>
-					<right>50</right>
-					<bottom>90</bottom>
+					<right>80</right>
+					<bottom>190</bottom>
 					<onleft>3</onleft>
 					<onright>60</onright>
 					<onup>5</onup>
@@ -60,13 +60,10 @@
 			<control type="group">
 				<depth>DepthContentPanel</depth>
 				<include>OpenClose_Left</include>
-				<include content="ContentPanel">
-					<param name="width" value="530" />
-				</include>
 				<control type="grouplist" id="3">
 					<description>button area</description>
-					<left>0</left>
-					<top>160</top>
+					<left>80</left>
+					<top>260</top>
 					<width>470</width>
 					<bottom>200</bottom>
 					<usecontrolcoords>true</usecontrolcoords>

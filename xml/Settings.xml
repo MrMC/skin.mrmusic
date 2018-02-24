@@ -24,7 +24,7 @@
 						<font>font36_title</font>
 						<textcolor>60FFFFFF</textcolor>
 						<label>$INFO[ListItem.Label]</label>
-						<align>right</align>
+						<align>left</align>
 						<aligny>center</aligny>
 						<animation effect="fade" start="100" end="30" time="200" tween="sine" condition="ControlGroup(9100).HasFocus">Conditional</animation>
 					</control>
@@ -35,10 +35,10 @@
 							<right>40</right>
 							<height>110</height>
 							<font>font36_title</font>
-							<animation center="460,50" effect="zoom" reversible="false" start="100" end="120" time="300" tween="sine">Focus</animation>
+							<animation center="90,50" effect="zoom" reversible="false" start="100" end="120" time="300" tween="sine">Focus</animation>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label]</label>
-							<align>right</align>
+							<align>left</align>
 						</control>
 				</focusedlayout>
 				<content>
