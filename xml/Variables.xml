@@ -18,13 +18,6 @@
 		<value condition="!IsEmpty(ListItem.Thumb)">$INFO[ListItem.Thumb]</value>
 		<value>$INFO[ListItem.Icon]</value>
 	</variable>
-	<variable name="ListLabel2Var">
-		<value condition="Stringcompare(Container.SortMethod,$LOCALIZE[556])">$INFO[ListItem.Year]</value>
-		<value>$INFO[ListItem.Label2]</value>
-	</variable>
-	<variable name="ListBoxInfoVar">
-		<value condition="Container.Content(songs)">$INFO[ListItem.Genre,[COLOR grey]$LOCALIZE[515]: [/COLOR],[CR]]$INFO[ListItem.Duration,[COLOR grey]$LOCALIZE[180]: [/COLOR],[CR]]$INFO[ListItem.Playcount,[COLOR grey]$LOCALIZE[567]: [/COLOR],[CR]]</value>
-	</variable>
 	<variable name="ForwardRewindVar">
 		<value condition="Player.Forwarding2x | Player.Rewinding2x">2x</value>
 		<value condition="Player.Forwarding4x | Player.Rewinding4x">4x</value>
@@ -63,13 +56,6 @@
 		<value condition="player.passthrough">dialogs/volume/volume.png</value>
 		<value>dialogs/volume/volume1.png</value>
 	</variable>
-	<variable name="ListSubLabelVar">
-		<value condition="ListItem.IsCollection"></value>
-		<value>[COLOR grey]$INFO[ListItem.Year, (,)][/COLOR]</value>
-	</variable>
-	<variable name="NowPlayingBreadcrumbsVar">
-		<value>$LOCALIZE[31000]...</value>
-	</variable>
 	<variable name="OSDSubLabelVar">
 		<value condition="Window.IsActive(visualisation)">$LOCALIZE[554] $INFO[Playlist.Position] / $INFO[Playlist.Length]</value>
 	</variable>
@@ -83,15 +69,6 @@
 		<value condition="Skin.HasSetting(dark_theme)">-</value>
 		<value condition="Skin.HasSetting(no_fanart)">$VAR[HomeFanartVar]</value>
 		<value condition="Window.IsActive(musicinformation)">$INFO[Window(home).Property(infobackground)]</value>
-	</variable>
-	<variable name="ListWatchedIconVar">
-		<value condition="ListItem.IsPlaying">overlays/watched/OverlayPlaying-List.png</value>
-		<value condition="ListItem.IsResumable + Skin.HasSetting(alternative_watched_icons)">overlays/watched/resume-alt.png</value>
-		<value condition="ListItem.IsResumable">overlays/watched/resume.png</value>
-		<value condition="ListItem.IsCollection">overlays/set.png</value>
-		<value condition="IntegerGreaterThan(ListItem.PlayCount,0) + Skin.HasSetting(alternative_watched_icons)">overlays/watched/watched-alt.png</value>
-		<value condition="!IsEmpty(ListItem.Overlay)">$INFO[ListItem.Overlay]</value>
-		<value condition="!StringCompare(ListItem.Label,..)">OverlayUnwatched.png</value>
 	</variable>
 	<!-- Breadcrumbs -->
 	<variable name="BreadcrumbsMediaSourcesVar">
