@@ -30,15 +30,21 @@
 						<include>MediaMenuLabelCommon</include>
 						<label>$LOCALIZE[31020]</label>
 					</control>
-					<control type="radiobutton" id="16">
-						<label>$LOCALIZE[589]</label>
-						<include>MediaMenuItemsCommon</include>
-					</control>
-					<control type="button" id="612">
+					<control type="button" id="602">
 						<include>MediaMenuItemsCommon</include>
 						<label>$LOCALIZE[31056]</label>
 						<onclick>ActivateWindow(musicplaylist)</onclick>
-						<visible>IntegerGreaterThan(Playlist.Length(music),0)</visible>
+						<enable>IntegerGreaterThan(Playlist.Length(music),0)</enable>
+					</control>
+					<control type="button" id="603">
+						<include>MediaMenuItemsCommon</include>
+						<label>$LOCALIZE[31056]</label>
+						<onclick>ActivateWindow(musicplaylist)</onclick>
+					</control>
+					<control type="button" id="604">
+						<include>MediaMenuItemsCommon</include>
+						<label>Go to Home</label>
+						<onclick>ActivateWindow(musicplaylist)</onclick>
 					</control>
 					<include>MediaMenuNowPlaying</include>
 				</control>
