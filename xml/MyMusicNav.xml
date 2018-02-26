@@ -44,7 +44,7 @@
 					<control type="button" id="604">
 						<include>MediaMenuItemsCommon</include>
 						<label>Go to Home</label>
-						<onclick>ActivateWindow(musicplaylist)</onclick>
+						<onclick>ActivateWindow(home)</onclick>
 					</control>
 					<include>MediaMenuNowPlaying</include>
 				</control>
