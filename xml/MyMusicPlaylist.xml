@@ -36,8 +36,8 @@
 							<bottom>0</bottom>
 							<right>30</right>
 							<aligny>center</aligny>
-							<font>font12</font>
-							<label>$VAR[PlaylistLabelVar]</label>
+							<font>font30_title</font>
+							<label>$INFO[ListItem.Label]</label>
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
 						<control type="label">
@@ -46,8 +46,8 @@
 							<right>30</right>
 							<align>right</align>
 							<aligny>center</aligny>
-							<font>font12</font>
-							<label>$VAR[PlaylistLabel2Var]</label>
+							<font>font30_title</font>
+							<label>$INFO[ListItem.Duration]</label>
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
 					</focusedlayout>
@@ -57,8 +57,8 @@
 							<bottom>0</bottom>
 							<right>30</right>
 							<aligny>center</aligny>
-							<font>font12</font>
-							<label>$VAR[PlaylistLabelVar]</label>
+							<font>font30_title</font>
+							<label>$INFO[ListItem.Label]</label>
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
 						<control type="label">
@@ -67,8 +67,8 @@
 							<right>30</right>
 							<align>right</align>
 							<aligny>center</aligny>
-							<font>font12</font>
-							<label>$VAR[PlaylistLabel2Var]</label>
+							<font>font30_title</font>
+							<label>$INFO[ListItem.Duration]</label>
 							<textcolor>grey</textcolor>
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
