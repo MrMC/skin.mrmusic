@@ -5,7 +5,7 @@
 	<color name="dialog_tint">99151515</color>
     <color name="primary_color">ff0385b5</color>
     <color name="primary_color_30">500385b5</color>
-    <color name="selected">FFF4C659</color>
+    <color name="selected">FF0385b5</color>
 	<color name="background">FF000000</color>
 	<color name="bg_overlay_lighter">80FFFFFF</color>
 	<color name="black">FF000000</color>
