@@ -24,51 +24,81 @@
 					<viewtype label="List">list</viewtype>
 					<preloaditems>1</preloaditems>
 					<focusedlayout height="list_item_height">
-						<control type="image">
-							<left>0</left>
-							<right>0</right>
-							<bottom>0</bottom>
-							<texture colordiffuse="primary_color" border="5">buttons/focus.png</texture>
-							<visible>Control.HasFocus(50)</visible>
+						<control type="group">
+							<visible>Control.hasFocus(50)</visible>
+							<control type="image">
+								<left>0</left>
+								<right>0</right>
+								<bottom>0</bottom>
+								<texture colordiffuse="white" border="5">buttons/focus.png</texture>
+							</control>
+							<control type="label">
+								<left>35</left>
+								<bottom>0</bottom>
+								<right>90</right>
+								<aligny>center</aligny>
+								<scroll>true</scroll>
+								<font>font30_title</font>
+								<label>$INFO[ListItem.Label]</label>
+								<textcolor>black</textcolor>
+								<shadowcolor>text_shadow</shadowcolor>
+							</control>
+							<control type="label">
+								<left>40</left>
+								<bottom>0</bottom>
+								<right>40</right>
+								<align>right</align>
+								<aligny>center</aligny>
+								<font>font30_title</font>
+								<label>$INFO[ListItem.Label2]</label>
+								<textcolor>black</textcolor>
+								<shadowcolor>text_shadow</shadowcolor>
+							</control>
 						</control>
-						<control type="label">
-							<left>30</left>
-							<bottom>0</bottom>
-							<right>30</right>
-							<aligny>center</aligny>
-							<font>font30_title</font>
-							<label>$INFO[ListItem.Label]</label>
-							<shadowcolor>text_shadow</shadowcolor>
-						</control>
-						<control type="label">
-							<left>30</left>
-							<bottom>0</bottom>
-							<right>30</right>
-							<align>right</align>
-							<aligny>center</aligny>
-							<font>font30_title</font>
-							<label>$INFO[ListItem.Duration]</label>
-							<shadowcolor>text_shadow</shadowcolor>
+						<control type="group">
+							<visible>!Control.hasFocus(50)</visible>
+							<control type="label">
+								<left>35</left>
+								<bottom>0</bottom>
+								<right>90</right>
+								<aligny>center</aligny>
+								<scroll>true</scroll>
+								<font>font30_title</font>
+								<label>$INFO[ListItem.Label]</label>
+								<textcolor>white</textcolor>
+								<shadowcolor>text_shadow</shadowcolor>
+							</control>
+							<control type="label">
+								<left>40</left>
+								<bottom>0</bottom>
+								<right>40</right>
+								<align>right</align>
+								<aligny>center</aligny>
+								<font>font30_title</font>
+								<label>$INFO[ListItem.Label2]</label>
+								<textcolor>white</textcolor>
+								<shadowcolor>text_shadow</shadowcolor>
+							</control>
 						</control>
 					</focusedlayout>
 					<itemlayout height="list_item_height">
 						<control type="label">
-							<left>30</left>
+							<left>35</left>
 							<bottom>0</bottom>
-							<right>30</right>
+							<right>90</right>
 							<aligny>center</aligny>
 							<font>font30_title</font>
 							<label>$INFO[ListItem.Label]</label>
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
 						<control type="label">
-							<left>30</left>
+							<left>40</left>
 							<bottom>0</bottom>
-							<right>30</right>
+							<right>40</right>
 							<align>right</align>
 							<aligny>center</aligny>
 							<font>font30_title</font>
-							<label>$INFO[ListItem.Duration]</label>
+							<label>$INFO[ListItem.Label2]</label>
 							<textcolor>grey</textcolor>
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
