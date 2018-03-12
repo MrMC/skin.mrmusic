@@ -129,12 +129,6 @@
 					</include>
 					<onclick>noop</onclick>
 				</control>
-				<control type="radiobutton" id="5000">
-					<include content="OSDButton">
-						<param name="texture" value="osd/fullscreen/buttons/settings.png"/>
-					</include>
-					<onclick>ActivateWindow(1105)</onclick>
-				</control>
 			</control>
 			<control type="label">
 				<left>0</left>
