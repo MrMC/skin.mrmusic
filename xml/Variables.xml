@@ -46,19 +46,11 @@
 		<value condition="player.passthrough">dialogs/volume/volume.png</value>
 		<value>dialogs/volume/volume1.png</value>
 	</variable>
-	<variable name="OSDSubLabelVar">
-		<value condition="Window.IsActive(visualisation)">$LOCALIZE[554] $INFO[Playlist.Position] / $INFO[Playlist.Length]</value>
-	</variable>
 	<variable name="HomeFanartVar">
 		<value condition="Skin.HasSetting(dark_theme)">-</value>
 		<value condition="Skin.HasSetting(enable_custom_background) + !IsEmpty(Skin.String(Custom.Background))">$INFO[Skin.String(Custom.Background)]</value>
 		<value condition="Window.IsActive(musicinformation)">$INFO[Window(home).Property(infobackground)]</value>
 		<value>special://skin/extras/backgrounds/SKINDEFAULT.jpg</value>
-	</variable>
-	<variable name="MediaFanartVar">
-		<value condition="Skin.HasSetting(dark_theme)">-</value>
-		<value condition="Skin.HasSetting(no_fanart)">$VAR[HomeFanartVar]</value>
-		<value condition="Window.IsActive(musicinformation)">$INFO[Window(home).Property(infobackground)]</value>
 	</variable>
 	<!-- Breadcrumbs -->
 	<variable name="BreadcrumbsMediaSourcesVar">
