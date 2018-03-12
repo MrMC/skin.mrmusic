@@ -277,6 +277,77 @@
 					<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
 				</control>
 			</control>
+        <control type="grouplist">
+            <visible>!Window.IsVisible(DialogVolumeBar.xml)</visible>
+            <visible>!Window.IsVisible(DialogNotification.xml)</visible>
+            <visible>!Window.IsVisible(DialogExtendedProgressBar.xml)</visible>
+            <visible>!IsEmpty(Player.Duration) | Player.HasAudio</visible>
+            <top>70</top>
+            <right>62</right>
+            <orientation>horizontal</orientation>
+            <usecontrolcoords>true</usecontrolcoords>
+            <itemgap>24</itemgap>
+            <align>right</align>
+            <control type="group">
+                <width>700</width>
+                <posy>0</posy>
+                <control type="label">
+                    <top>0</top>
+                    <width>auto</width>
+                    <font>font32_title</font>
+                    <align>right</align>
+                    <textcolor>white</textcolor>
+                    <label>$INFO[Player.Title]</label>
+                </control>
+                <control type="label">
+                    <top>38</top>
+                    <align>right</align>
+                    <font>font25_title</font>
+                    <width>auto</width>
+                    <textcolor>grey</textcolor>
+                    <label>$INFO[MusicPlayer.Artist,,  ]$INFO[Player.Time]$INFO[Player.Duration, / ,]</label>
+                </control>
+            </control>
+            <control type="group">
+                <posx>0</posx>
+                <top>10</top>
+                <height>100</height>
+                <width>100</width>
+                <control type="image" description="Back">
+                    <left>0</left>
+                    <width>50</width>
+                    <height>50</height>
+                    <aspectratio align="center" aligny="center">keep</aspectratio>
+                    <texture>progress/back.png</texture>
+                    <animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
+                </control>
+                <control type="image">
+                    <left>0</left>
+                    <width>50</width>
+                    <height>50</height>
+                    <aspectratio align="center" aligny="center">keep</aspectratio>
+                    <texture colordiffuse="grey">$VAR[NowPlayingIconVar]</texture>
+                </control>
+                <control type="progress" id="933">
+                    <texturebg>-</texturebg>
+                    <lefttexture>-</lefttexture>
+                    <midtexture>-</midtexture>
+                    <righttexture>-</righttexture>
+                    <info>Player.Progress</info>
+                    <visible>false</visible>
+                </control>
+                <control type="image">
+                    <left>0</left>
+                    <centertop>50%</centertop>
+                    <width>60</width>
+                    <height>60</height>
+                    <texture colordiffuse="$VAR[ColorHighlight]">$INFO[Control.GetLabel(933),progress/circle/p,.png]</texture>
+                    <aspectratio align="center">keep</aspectratio>
+                    <visible>!IsEmpty(Player.Duration)</visible>
+                </control>
+
+            </control>
+        </control>
 		</definition>
 	</include>
 	<include name="BreadcrumbsLabel">
