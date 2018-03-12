@@ -11,6 +11,7 @@
 	<color name="black">FF000000</color>
 	<color name="white">FFF0F0F0</color>
 	<color name="grey">FFA0A0A0</color>
+	<color name="tooltip">FFE840AA</color>
 	<color name="text_shadow">22000000</color>
 	<color name="border_alpha">60FFFFFF</color>
 	<color name="disabled">40FFFFFF</color>
