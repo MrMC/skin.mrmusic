@@ -1,15 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
-	<variable name="PlaylistLabelVar">
-		<value>$INFO[ListItem.Label]</value>
-	</variable>
-	<variable name="PlaylistLabel2Var">
-		<value condition="Window.IsActive(musicplaylist)">$INFO[ListItem.Duration]</value>
-		<value>$INFO[ListItem.Duration,, $LOCALIZE[12391]]</value>
-	</variable>
-	<variable name="NowPlayingSublabelVar">
-		<value condition="Player.HasAudio">$INFO[MusicPlayer.Artist]</value>
-	</variable>
 	<variable name="NowPlayingIconVar">
 		<value condition="Player.Paused">icons/now-playing/pause.png</value>
 		<value>icons/now-playing/play.png</value>
