@@ -3,25 +3,7 @@
 	<defaultcontrol></defaultcontrol>
 	<backgroundcolor>background</backgroundcolor>
 	<controls>
-		<control type="visualisation">
-			<include>FullScreenDimensions</include>
-			<visible>Player.HasAudio</visible>
-		</control>
-		<control type="image">
-			<left>0</left>
-			<top>0</top>
-			<width>100%</width>
-			<height>100%</height>
-			<aspectratio>scale</aspectratio>
-			<fadetime>400</fadetime>
-			<animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
-			<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
-			<texture background="true" colordiffuse="88FFFFFF">$INFO[Player.Art(fanart)]</texture>
-		</control>
-		<control type="group">
-			<animation effect="fade" start="100" end="30" time="0" condition="!IsEmpty(Player.Art(fanart)) | Visualisation.Enabled">Conditional</animation>
-			<include>ColoredBackgroundImages</include>
-		</control>
+		<include>DefaultBackground</include>
 		<control type="group">
 			<bottom>0</bottom>
 			<height>1080</height>
